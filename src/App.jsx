@@ -2,7 +2,7 @@ import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 
-function App() {
+const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col">

@@ -7,7 +7,7 @@ const NavBar = () => {
     <nav className="bg-neutral-400 flex justify-between items-center px-10 py-4">
         <div className="flex flex-1 items-center gap-4 text-3xl">
             <img src={reactLogo} alt="React Logo" className="h-16" />
-            <h1 className="">Mi Tienda</h1>
+            <h1 className="">La Grafica</h1>
         </div>
         <div className="flex flex-1 justify-center">
             <ul className="flex gap-10 text-lg">
