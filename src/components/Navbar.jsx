@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
@@ -22,9 +23,9 @@ const Navbar = () => {
                 </button>
             </div>
             <ul  className={`font-mono flex-col lg:flex-row order-3 lg:order-1 gap-3 lg:gap-10 md:text-lg pl-5 lg:pl-0 ${menuOpen ? "flex" : "hidden"} lg:flex justify-start lg:justify-center mt-4 lg:mt-0`}>
-                <li className="hover:scale-110 transition duration-300"><a href="">Inicio</a></li>
-                <li className="hover:scale-110 transition duration-300"><a href="">Catalogo</a></li>
-                <li className="hover:scale-110 transition duration-300"><a href="">Contacto</a></li>
+                <li className="hover:scale-110 transition duration-300"><Link to={"/"}>Inicio</Link></li>
+                <li className="hover:scale-110 transition duration-300"><Link to={"/catalogue"}>Catalogo</Link></li>
+                <li className="hover:scale-110 transition duration-300"><Link to={"/contact"}>Contacto</Link></li> {/* No implementado por el momento */}
             </ul>
             <div className="flex order-2 justify-end lg:text-2xl md:text-xl text-lg pr-5 lg:pr-10">
                 <CartWidget />
