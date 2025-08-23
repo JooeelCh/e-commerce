@@ -23,9 +23,9 @@ const Navbar = () => {
                 </button>
             </div>
             <ul  className={`font-mono flex-col lg:flex-row order-3 lg:order-1 gap-3 lg:gap-10 md:text-lg pl-5 lg:pl-0 ${menuOpen ? "flex" : "hidden"} lg:flex justify-start lg:justify-center mt-4 lg:mt-0`}>
-                <li className="hover:scale-110 transition duration-300"><Link to={"/"}>Inicio</Link></li>
-                <li className="hover:scale-110 transition duration-300"><Link to={"/catalogue"}>Catalogo</Link></li>
-                <li className="hover:scale-110 transition duration-300"><Link to={"/contact"}>Contacto</Link></li> {/* No implementado por el momento */}
+                <li><Link to={"/"}>Inicio</Link></li>
+                <li><Link to="/products">Catalogo</Link></li>
+                <li><Link to={"/contact"}>Contacto</Link></li> {/* No implementado por el momento */}
             </ul>
             <div className="flex order-2 justify-end lg:text-2xl md:text-xl text-lg pr-5 lg:pr-10">
                 <CartWidget />
