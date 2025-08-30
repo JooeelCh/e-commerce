@@ -33,7 +33,7 @@ const ItemListContainer = ({ title }) => {
     }
 
     return (
-        <section className="flex flex-col items-center mt-10">
+        <section className="flex flex-col items-center mt-10 mb-20">
             <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl">{title}</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-3 mt-10">
                 {products.map((prod) => (

@@ -1,5 +1,4 @@
 import ItemCard from "./ItemCard";
-import ItemDetailContainer from "./ItemDetailContainer";
 
 const FeaturedItems = ({ products }) => {
 
