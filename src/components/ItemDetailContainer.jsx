@@ -42,7 +42,7 @@ const ItemDetailContainer = () => {
                 <NotFound />
             </>
         );
-    }
+    }   
 
     return (
         <div>
