@@ -1,27 +1,42 @@
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import ItemCard from "./ItemCard";
+import CategoryFilter from "./CategoryFilter";
 
-const ItemListContainer = ({ title }) => {
-
+const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("all");
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getItems = async () => {
             try {
-                const res = await fetch('https://68a0c1816f8c17b8f5d873ff.mockapi.io/products');
+                const res = await fetch("https://68a0c1816f8c17b8f5d873ff.mockapi.io/products");
                 const data = await res.json();
                 setProducts(data);
+                setFilteredProducts(data);
+
+                const cats = [...new Set(data.map((p) => p.cat))];
+                setCategories(cats);
             } catch (error) {
-                console.error('Error de Fetch:', error);
+                console.error("Error de Fetch:", error);
             } finally {
                 setLoading(false);
             }
-
         };
         getItems();
     }, []);
+
+    useEffect(() => {
+        if (selectedCategory === "all") {
+            setFilteredProducts(products);
+        } else {
+            const filtered = products.filter((p) => p.cat === selectedCategory);
+            setFilteredProducts(filtered);
+        }
+    }, [selectedCategory, products]);
 
     if (loading) {
         return (
@@ -33,19 +48,22 @@ const ItemListContainer = ({ title }) => {
     }
 
     return (
-        <section className="flex flex-col items-center mt-10 mb-20">
-            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl">{title}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-3 mt-10">
-                {products.map((prod) => (
-                    <ItemCard 
-                        key={prod.id}
-                        {...prod}
-                    />
+        <section className="flex mt-10 mb-20 w-full max-w-7xl mx-auto">
+            <div className="w-60 flex-shrink-0">
+                <CategoryFilter
+                    categories={categories}
+                    selectedCategory={selectedCategory}
+                    onCategoryChange={setSelectedCategory}
+                />
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ml-5 min-h-[600px]">
+                {filteredProducts.map((prod) => (
+                    <ItemCard key={prod.id} {...prod} />
                 ))}
             </div>
         </section>
     );
-
-}
+};
 
 export default ItemListContainer;

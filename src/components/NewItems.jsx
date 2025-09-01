@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 
-const NewItems = ({ products }) => {
+const NewItems = () => {
 
+    const [products, setProducts] = useState([]);
     const newItems = products.filter(p => p.new)
+
+    useEffect(() => {
+        const getItems = async () => {
+            try {
+                const res = await fetch('https://68a0c1816f8c17b8f5d873ff.mockapi.io/products');
+                const data = await res.json();
+                setProducts(data);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+        getItems();
+    }, []);
 
     return (
         <div className="flex flex-col items-center mt-10">
