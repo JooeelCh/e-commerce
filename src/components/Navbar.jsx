@@ -11,12 +11,14 @@ const Navbar = () => {
 
     return (
         <nav className="grid grid-cols-3 items-center p-4 bg-gray-800 text-white">
-            <div className="flex order-1 lg:order-0 justify-center lg:justify-start lg:pl-10 gap-2 lg:gap-4">
-                <span className="text-3xl lg:text-4xl">
-                <IoLibrarySharp/>
-                </span>
-                <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl">La Grafica</h1>
-            </div>
+            <Link to={"/"}>
+                <div className="flex order-1 lg:order-0 justify-center lg:justify-start lg:pl-10 gap-2 lg:gap-4">
+                    <span className="text-3xl lg:text-4xl">
+                    <IoLibrarySharp/>
+                    </span>
+                    <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl">La Grafica</h1>
+                </div>
+            </Link>
             <div className="lg:hidden flex justify-start order-0">
                 <button onClick={toggleMenu} className="text-2xl ml-2">
                     {menuOpen ? <IoClose /> : <GiHamburgerMenu />}
