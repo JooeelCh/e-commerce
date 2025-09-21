@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
                     setItem(null);
                 }
             } catch (error) {
-                console.error('Error de Fetch:', error);
+                console.error('Error al cargar el producto:', error);
                 setItem(null);
             } finally {
                 setLoading(false);

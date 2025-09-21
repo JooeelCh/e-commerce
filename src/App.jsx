@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/home";
 import Catalogue from "./pages/catalogue";
 import ItemDetailContainer from "./pages/ItemDetailContainer";
 import NotFound from "./components/NotFound";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import CartProvider from "./context/CartContext";
+import Cart from "./pages/Cart";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<Home/>} />
               <Route path="/products" element={<Catalogue/>} />
               <Route path="/products/item/:id" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

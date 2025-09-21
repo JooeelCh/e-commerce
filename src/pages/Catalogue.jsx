@@ -1,9 +1,9 @@
-import ItemListContainer from "../components/ItemListContainer";
+import ItemListContainer from "../components/products/ItemListContainer";
 
 const Catalogue = () => {
     return (
-        <div className="flex flex-col mt-10 w-full min-h-[100vh]">
-            <h2 className="text-3xl font-semibold text-center mb-5">Catalogo</h2>
+        <div className="flex flex-col mt-10 w-full">
+            <h1 className="text-3xl font-semibold text-center mb-5">Catalogo</h1>
             <ItemListContainer />
         </div>
     );

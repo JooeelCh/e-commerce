@@ -15,7 +15,7 @@ const CartProvider = ({ children }) => {
         )
       );
     } else {
-      setCart([...cart, { ...product, qty: 1 }]);
+      setCart([...cart, { ...product, qty: 1}]);
     }
   };
 
@@ -27,9 +27,11 @@ const CartProvider = ({ children }) => {
 
   const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
 
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, totalItems }}
+      value={{ cart, addToCart, removeFromCart, clearCart, totalItems, totalPrice }}
     >
       {children}
     </CartContext.Provider>

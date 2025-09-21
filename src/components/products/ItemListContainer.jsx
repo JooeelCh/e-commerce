@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../data/fireBaseConfig";
-import ItemCard from "./ItemCard";
-import CategoryFilter from "./CategoryFilter";
+import { db } from "../../data/fireBaseConfig";
+import ItemCard from "../ItemCard";
+import CategoryFilter from "../CategoryFilter";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -23,7 +23,7 @@ const ItemListContainer = () => {
                 const cats = [...new Set(data.map((p) => p.cat))];
                 setCategories(cats);
             } catch (error) {
-                console.error("Error de Fetch:", error);
+                console.error("Error al obtener productos:", error);
             } finally {
                 setLoading(false);
             }

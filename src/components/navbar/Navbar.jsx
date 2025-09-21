@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { IoLibrarySharp } from "react-icons/io5";
 import CartWidget from "./CartWidget";
+import UserWidget from "./UserWidget";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +30,8 @@ const Navbar = () => {
                 <li><Link to="/products">Catalogo</Link></li>
                 <li><Link to={"/contact"}>Contacto</Link></li> {/* No implementado por el momento */}
             </ul>
-            <div className="flex order-2 justify-end lg:text-2xl md:text-xl text-lg pr-5 lg:pr-10">
+            <div className="flex order-2 gap-10 justify-end lg:text-2xl md:text-xl text-lg pr-5 lg:pr-10">
+                <UserWidget />
                 <CartWidget />
             </div>
         </nav>
