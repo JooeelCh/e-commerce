@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const ItemCard = ( { id, name, description, price }) => {
+    
+    const { addToCart } = useContext(CartContext);
+
+    const handleAddToCart = () => {
+        addToCart({ id, name, price });
+    }
 
     return (
         <Link to={`/products/item/${id}`}>
@@ -8,6 +16,7 @@ const ItemCard = ( { id, name, description, price }) => {
                 <h2 className="text-xl font-bold text-center">{name}</h2>
                 <p className="mb-2 text-center">{description}</p>
                 <p className="text-center">${price}</p>
+                <button onClick={(e) => { e.preventDefault(); handleAddToCart(); }} className="mt-2 bg-blue-500 text-white py-1 px-4 rounded hover:bg-blue-600 transition-colors duration-300">Agregar al carrito</button>
             </div>
         </Link>
     )

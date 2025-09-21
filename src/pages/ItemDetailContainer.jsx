@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import ItemDetail from './ItemDetail';
-import NotFound from './NotFound';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from '../data/fireBaseConfig';
+import ItemDetail from '../components/ItemDetail';
+import NotFound from '../components/NotFound';
 
 const ItemDetailContainer = () => {
 
@@ -13,10 +15,13 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         const getItem = async () => {
             try {
-                const res = await fetch(`https://68a0c1816f8c17b8f5d873ff.mockapi.io/products/${id}`);
-                if (!res.ok) throw new Error("Producto no encontrado");
-                const data = await res.json();
-                setItem(data);
+                const res = doc(db, "products", id);
+                const data = await getDoc(res);
+                if (data.exists()) {
+                    setItem({ id: data.id, ...data.data() });
+                } else {
+                    setItem(null);
+                }
             } catch (error) {
                 console.error('Error de Fetch:', error);
                 setItem(null);

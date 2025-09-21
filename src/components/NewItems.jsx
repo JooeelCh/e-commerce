@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../data/fireBaseConfig";
 import ItemCard from "./ItemCard";
 
 const NewItems = () => {
@@ -9,8 +11,8 @@ const NewItems = () => {
     useEffect(() => {
         const getItems = async () => {
             try {
-                const res = await fetch('https://68a0c1816f8c17b8f5d873ff.mockapi.io/products');
-                const data = await res.json();
+                const res = await getDocs(collection(db, "products"));
+                const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setProducts(data);
             } catch (error) {
                 console.error('Error fetching products:', error);

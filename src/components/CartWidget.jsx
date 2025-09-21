@@ -1,10 +1,15 @@
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
 
+    const { totalItems } = useContext(CartContext);
+
     return (
-        <button className="cursor-pointer transform hover:scale-110 transition duration-300">
+        <button className="flex cursor-pointer transform hover:scale-110 transition duration-300">
             <FaShoppingCart />
+            { totalItems > 0 && <span className="flex items-center justify-centerml-1 bg-red-500 text-white rounded-full px-2 text-sm">{totalItems}</span> }
         </button>
     );
 

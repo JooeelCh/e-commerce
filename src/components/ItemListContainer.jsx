@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../data/fireBaseConfig";
 import ItemCard from "./ItemCard";
 import CategoryFilter from "./CategoryFilter";
 
@@ -13,8 +15,8 @@ const ItemListContainer = () => {
     useEffect(() => {
         const getItems = async () => {
             try {
-                const res = await fetch("https://68a0c1816f8c17b8f5d873ff.mockapi.io/products");
-                const data = await res.json();
+                const res = await getDocs(collection(db, "products"));
+                const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setProducts(data);
                 setFilteredProducts(data);
 
