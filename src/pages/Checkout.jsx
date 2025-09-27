@@ -58,9 +58,9 @@ const Checkout = () => {
     <div className="flex flex-col items-center w-full h-full">
       <h1 className="text-3xl font-semibold text-center mb-5">Finalizar compra</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-2 w-1/4 h-110 p-4 bg-white rounded-xl shadow">
-        <input value={buyer.name} onChange={handleChange} placeholder="Nombre" className="border w-1/2 p-2 rounded"/>
-        <input value={buyer.email} onChange={handleChange} placeholder="Correo Electronico" className="border w-1/2 p-2 rounded"/>
-        <input value={buyer.address} onChange={handleChange} placeholder="Dirección" className="border w-1/2 p-2 mb-12 rounded"/>
+        <input name="name" value={buyer.name} onChange={handleChange} placeholder="Nombre" className="border w-1/2 p-2 rounded"/>
+        <input name="email" value={buyer.email} onChange={handleChange} placeholder="Correo Electronico" className="border w-1/2 p-2 rounded"/>
+        <input name="address" value={buyer.address} onChange={handleChange} placeholder="Dirección" className="border w-1/2 p-2 mb-12 rounded"/>
         <button type="submit" className="flex self-center justify-center bg-green-500 text-white py-2 w-1/2 rounded hover:bg-green-600 transition">Confirmar compra</button>
       </form>
     </div>
