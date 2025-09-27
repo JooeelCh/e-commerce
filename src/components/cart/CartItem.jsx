@@ -1,3 +1,4 @@
+import { FaTrash } from "react-icons/fa6";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -14,8 +15,8 @@ const CartItem = ({ item }) => {
                     <p className="font-semibold">${item.price * item.qty}</p>
                 </div>
             </div>
-            <button onClick={() => removeFromCart(item.id)} className="bg-red-500 text-white px-3 py-1 mr-3 rounded hover:bg-red-600 transition">
-                Eliminar
+            <button onClick={() => removeFromCart(item.id)} className=" text-white border-2 bg-red-500 px-3 py-2 mr-3 rounded-lg hover:bg-red-600 transition duration-300">
+                <FaTrash />
             </button>
         </div>
     );

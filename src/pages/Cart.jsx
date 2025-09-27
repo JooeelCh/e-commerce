@@ -11,7 +11,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="mt-10 w-full">
+    <div className="w-full">
       <h1 className="text-3xl font-semibold text-center mb-5">Carrito</h1>
       <CartList items={cart} />
       <CartTotal />

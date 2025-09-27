@@ -6,17 +6,30 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
+  const addToCart = (product, quantity) => {
+
+    console.log("[addToCart] product:", product);
+    console.log("[addToCart] quantity:", quantity);
+    console.log("[addToCart] product.stock:", product?.stock);
+
     const exists = cart.find((item) => item.id === product.id);
     if (exists) {
-      setCart(
-        cart.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-        )
-      );
+      if(exists.qty + quantity <= product.stock){
+        setCart(
+          cart.map((item) =>
+            item.id === product.id ? { ...item, qty: item.qty + quantity } : item
+          )
+        );
+      } else {
+        alert("No hay suficiente stock disponible");
+      }
     } else {
-      setCart([...cart, { ...product, qty: 1}]);
-    }
+      if(quantity <= product.stock){
+          setCart([...cart, { ...product, qty: quantity}]);
+      } else {
+        alert("No hay suficiente stock disponible");
+        }   
+      } 
   };
 
   const removeFromCart = (id) => {
