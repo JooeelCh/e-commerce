@@ -55,13 +55,13 @@ const Checkout = () => {
   }
 
   return (
-    <div className="flex flex-col items-center mt-10">
-      <h2 className="text-2xl font-bold mb-4">Finalizar compra</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-1/3">
-        <input type="text" name="name" placeholder="Nombre" value={buyer.name} onChange={handleChange} className="border p-2 rounded"/>
-        <input type="email" name="email" placeholder="Email" value={buyer.email} onChange={handleChange} className="border p-2 rounded"/>
-        <input type="text" name="address" placeholder="Dirección" value={buyer.address} onChange={handleChange} className="border p-2 rounded"/>
-        <button type="submit" className="bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Confirmar compra</button>
+    <div className="flex flex-col items-center w-full h-full">
+      <h1 className="text-3xl font-semibold text-center mb-5">Finalizar compra</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-2 w-1/4 h-110 p-4 bg-white rounded-xl shadow">
+        <input value={buyer.name} onChange={handleChange} placeholder="Nombre" className="border w-1/2 p-2 rounded"/>
+        <input value={buyer.email} onChange={handleChange} placeholder="Correo Electronico" className="border w-1/2 p-2 rounded"/>
+        <input value={buyer.address} onChange={handleChange} placeholder="Dirección" className="border w-1/2 p-2 mb-12 rounded"/>
+        <button type="submit" className="flex self-center justify-center bg-green-500 text-white py-2 w-1/2 rounded hover:bg-green-600 transition">Confirmar compra</button>
       </form>
     </div>
   );

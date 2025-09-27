@@ -20,7 +20,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 w-full h-full">
+    <div className="flex flex-col items-center w-full h-full">
       <h1 className="text-3xl font-semibold text-center mb-5">Registrarse</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center w-1/4 h-110 gap-2 p-4 bg-white rounded-xl shadow">
         <FaUserCircle className="flex self-center text-5xl mb-10" />
@@ -29,7 +29,7 @@ const RegisterForm = () => {
           <input value={surname} onChange={e => setSurname(e.target.value)} placeholder="Apellido" className="border px-2 py-1 rounded-md" />
         </div>
         <input 
-        value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="border mb-2 px-2 py-1 rounded-md" 
+        value={email} onChange={e => setEmail(e.target.value)} placeholder="Correo electronico" className="border mb-2 px-2 py-1 rounded-md" 
         />
         <input 
           type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Contraseña" className="border px-2 py-1 mb-12 rounded-md" 

@@ -22,7 +22,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-10 w-full h-full">
+    <div className="flex flex-col justify-center items-center w-full h-full">
       <h1 className="text-3xl font-semibold text-center mb-5">Iniciar Sesion</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center w-1/5 h-110 gap-2 p-4 bg-white rounded-xl shadow">
         <FaUserCircle className="flex self-center text-5xl mb-10" />
