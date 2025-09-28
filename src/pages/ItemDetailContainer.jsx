@@ -50,9 +50,9 @@ const ItemDetailContainer = () => {
     }   
 
     return (
-        <div>
+        <>
             <ItemDetail {...item} />
-        </div>
+        </>
     );
 
 }
